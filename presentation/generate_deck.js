@@ -349,7 +349,56 @@ function cardText(s,x,y,w,h,label,body,color=C.cyan){ rect(s,x,y,w,h); addText(s
  tag(s,'COMBINED RELEASE GATE: PASSED',4.92,6.25,C.green,3.5);
 }
 
-// 17
+// 17 — Future platform workflow
+{
+ const s=base('16 · ESL future platform','From one digital twin to a reusable consensus research workbench','Proposed 16-week plan: reuse the experiment machinery, but keep every protocol’s state machine, assumptions, and proofs explicit.','ESL 3–4 MONTH PLAN');
+ const arrow=(x,y)=>s.addShape(pptx.ShapeType.chevron,{x,y,w:.32,h:.55,fill:{color:C.line},line:{color:C.line}});
+ rect(s,.65,1.7,2.35,1.4,C.bg2,.12,C.cyan);
+ addText(s,'RESEARCH INPUTS',.88,1.93,1.9,.24,{fontSize:11,bold:true,color:C.cyan,align:'center'});
+ addText(s,'Workloads · timing\nfailures · traces\nnetwork scenarios',.88,2.3,1.9,.58,{fontSize:14,bold:true,color:C.white,align:'center',valign:'top'});
+ arrow(3.15,2.12);
+ rect(s,3.62,1.62,3.1,1.58,C.card2,.12,C.violet);
+ addText(s,'SHARED RESEARCH KERNEL',3.88,1.88,2.58,.24,{fontSize:11,bold:true,color:C.violet,align:'center'});
+ addText(s,'Deterministic event engine\nnetwork + fault injection\nmetrics · replay · evidence schema',3.9,2.25,2.54,.72,{fontSize:13.5,bold:true,color:C.white,align:'center',valign:'top'});
+ arrow(6.88,2.12);
+ const adapters=[
+  ['CFT','Raft · Paxos',C.cyan],
+  ['BFT','PBFT · HotStuff · Jolteon',C.amber],
+  ['DAG STACK','Narwhal data layer → Bullshark\nMysticeti remains the reference',C.green]
+ ];
+ adapters.forEach((a,i)=>{const y=1.54+i*.78; rect(s,7.36,y,5.25,.64,C.bg2,.1,a[2]); addText(s,a[0],7.57,y+.12,1.15,.18,{fontSize:9.5,bold:true,color:a[2]}); addText(s,a[1],8.78,y+.08,3.58,.34,{fontSize:12.5,bold:true,color:C.white,align:'center'});});
+ addText(s,'Narwhal is modeled as a composable dissemination/mempool subsystem—not mislabeled as standalone consensus.',7.48,3.94,5.0,.34,{fontSize:10.5,italic:true,color:C.muted,align:'center'});
+ line(s,1.82,3.42,0,1.0,C.line,1.4);
+ line(s,5.17,3.42,0,1.0,C.line,1.4);
+ line(s,9.95,4.36,0,.06,C.line,1.4);
+ const lanes=[
+  ['RUST','Execute protocol adapters\nand deterministic campaigns',C.amber],
+  ['WOLFRAM','Explore parameter spaces\nand compare trade-offs',C.violet],
+  ['LEAN 4','Kernel-check each protocol’s\nseparate proof obligations',C.green]
+ ];
+ lanes.forEach((a,i)=>{const x=.68+i*4.17; rect(s,x,4.5,3.72,1.18,C.card2,.12,a[2]); addText(s,a[0],x+.2,4.72,3.32,.22,{fontSize:11,bold:true,color:a[2],align:'center'}); addText(s,a[1],x+.25,5.08,3.22,.43,{fontSize:13.5,bold:true,color:C.white,align:'center',valign:'top'});});
+ lanes.forEach((_,i)=>line(s,2.54+i*4.17,5.72,0,.45,C.line,1.3));
+ rect(s,3.38,6.12,6.58,.58,'102A2A',.1,C.green);
+ addText(s,'VERSIONED EVIDENCE BUNDLE  →  traces · metrics · theorem map · claim boundaries',3.62,6.28,6.1,.22,{fontSize:11.5,bold:true,color:C.green,align:'center'});
+}
+
+// 18 — Four-month roadmap
+{
+ const s=base('17 · ESL delivery roadmap','A four-month path to a public multi-protocol beta','Sequence by learning value: establish trusted CFT baselines, then classic/chained BFT, then the DAG stack and cross-protocol evidence.','PROPOSED ROADMAP');
+ const phases=[
+  ['WEEKS 1–4','PLATFORM CORE',['Extract event/network/fault kernel','Common scenario + evidence schema','Raft adapter as baseline oracle','Adapter contract + golden traces'],C.cyan],
+  ['WEEKS 5–8','CFT + BFT BASELINES',['Paxos adapter + equivalence cases','PBFT state machine and faults','HotStuff chained-QC adapter','Per-protocol assumptions matrix'],C.amber],
+  ['WEEKS 9–12','MODERN DAG / BFT',['Narwhal dissemination subsystem','Bullshark DAG consensus adapter','Jolteon fast-path adapter','Cross-protocol campaign presets'],C.green],
+  ['WEEKS 13–16','PROOF + PUBLIC BETA',['Lean obligation map per protocol','Wolfram comparative dashboards','Differential + regression campaigns','Docs, examples, API, public beta'],C.violet]
+ ];
+ phases.forEach((p,i)=>{const x=.62+i*3.13; rect(s,x,1.68,2.82,3.83,C.bg2,.12,p[3]); addText(s,p[0],x+.2,1.9,2.42,.2,{fontSize:10,bold:true,color:p[3],align:'center'}); addText(s,p[1],x+.18,2.25,2.46,.34,{fontSize:15,bold:true,color:C.white,align:'center'}); line(s,x+.26,2.76,2.3,0,p[3],1.2); p[2].forEach((t,j)=>{dot(s,x+.25,3.08+j*.52,p[3],.09); addText(s,t,x+.47,2.98+j*.52,2.07,.3,{fontSize:11.3,bold:true,color:C.text,valign:'top'});}); if(i<3)s.addShape(pptx.ShapeType.chevron,{x:x+2.89,y:3.2,w:.17,h:.48,fill:{color:C.line},line:{color:C.line}});});
+ rect(s,.68,5.88,11.98,.62,'102A2A',.1,C.green);
+ addText(s,'PUBLIC-BETA GATE',.9,6.08,1.55,.2,{fontSize:10.5,bold:true,color:C.green});
+ addText(s,'deterministic replay  ·  comparable metrics  ·  explicit assumptions  ·  protocol-specific theorem coverage  ·  reproducible examples',2.46,6.0,9.82,.34,{fontSize:12.2,bold:true,color:C.white,align:'center'});
+ addText(s,'Planning principle: shared infrastructure, never a “universal proof.” Every adapter ships with its own semantics, invariants, exclusions, and evidence.',1.12,6.62,11.1,.25,{fontSize:11.5,italic:true,color:C.amber,align:'center'});
+}
+
+// 19 — Contact
 {
  const s=pptx.addSlide('DARK');
  s.addShape(pptx.ShapeType.rect,{x:0,y:0,w:5.15,h:7.5,fill:{color:C.black},line:{color:C.black}});

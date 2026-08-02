@@ -61,8 +61,8 @@ if validation.get("Passed") != 12 or validation.get("Failed") != 0 or validation
 html = (ROOT / "presentation/html/index.html").read_text(encoding="utf-8")
 slides = re.findall(r'<section class="slide"', html)
 references = sorted(set(re.findall(r"slides/(slide-[0-9]+\.jpg)", html)))
-if len(slides) != 22 or len(references) != 22:
-    fail(f"expected 22 HTML slides and images, got {len(slides)} and {len(references)}")
+if len(slides) != 24 or len(references) != 24:
+    fail(f"expected 24 HTML slides and images, got {len(slides)} and {len(references)}")
 for image in references:
     if not (ROOT / "presentation/html/slides" / image).is_file():
         fail(f"missing HTML slide image: {image}")
