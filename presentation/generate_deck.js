@@ -56,7 +56,7 @@ function tag(s,text,x,y,color=C.green,w=1.55) {
 function footer(s,evidence='') {
   line(s,0.58,7.06,12.15,0,C.line,0.7);
   addText(s,[{text:ESL,options:{hyperlink:{url:ESL},color:C.cyan,underline:true}}],0.6,7.12,2.0,0.18,{fontSize:9,color:C.cyan});
-  addText(s,[{text:'GitHub: mysticeti-proof-to-production-demo',options:{hyperlink:{url:REPO},color:C.muted,underline:true}}],2.55,7.12,4.25,0.18,{fontSize:8.5,color:C.muted});
+  addText(s,[{text:'GitHub: zuwasi/mysticeti-proof-to-production-demo',options:{hyperlink:{url:REPO},color:C.muted,underline:true}}],2.55,7.12,4.25,0.18,{fontSize:8.5,color:C.muted});
   if(evidence) addText(s,evidence.toUpperCase(),9.35,7.12,2.85,0.18,{fontSize:8.5,bold:true,color:C.muted,align:'right'});
 }
 function logo(s,x=11.52,y=0.25,w=1.18,h=0.48) {
@@ -96,7 +96,7 @@ function cardText(s,x,y,w,h,label,body,color=C.cyan){ rect(s,x,y,w,h); addText(s
  const s=base('01 · production relevance','Why Mysticeti matters','A research result with a real deployment path — and an unusually sharp latency target.','PAPER + PUBLIC SOURCES');
  line(s,1.05,3.28,11.1,0,C.line,2);
  const events=[
-  {x:1.0,yr:'Oct 2023',t:'Preprint',d:'“Reaching the Limits of Latency with Uncertified DAGs”',c:C.violet},
+  {x:1.0,yr:'Oct 2023',t:'Preprint',d:'“Reaching the Latency Limits with Uncertified DAGs”',c:C.violet},
   {x:4.0,yr:'25 Jul 2024',t:'Sui Mainnet',d:'Validators switched to Mysticeti-C consensus.',c:C.green},
   {x:7.25,yr:'NDSS 2025',t:'Peer-reviewed',d:'Mysticeti appears in the NDSS 2025 program.',c:C.cyan},
   {x:10.25,yr:'Goal',t:'3 message rounds',d:'Direct commit path targets three message rounds.',c:C.amber}
