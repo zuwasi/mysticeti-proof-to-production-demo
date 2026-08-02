@@ -1,0 +1,10 @@
+rust/target/
+lean/.lake/
+presentation/rendered/*/
+exports/ci-*
+__pycache__/
+*.py[cod]
+*.tmp
+*.log
+.DS_Store
+Thumbs.db

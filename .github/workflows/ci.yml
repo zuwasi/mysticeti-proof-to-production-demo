@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rust:
+    name: Rust (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install pinned Rust toolchain
+        shell: bash
+        run: |
+          rustup toolchain install 1.97.1 --profile minimal --component rustfmt,clippy
+          rustup override set 1.97.1
+      - run: cargo fmt --check
+      - run: cargo test --all-targets
+      - run: cargo clippy --all-targets -- -D warnings
+
+  deterministic-evidence:
+    name: Deterministic replay and campaigns
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install pinned Rust toolchain
+        run: |
+          rustup toolchain install 1.97.1 --profile minimal
+          rustup override set 1.97.1
+      - name: Generate and compare evidence
+        working-directory: rust
+        run: |
+          cargo run --release -- demo --output ../exports/ci-trace.json
+          cargo run --release -- verify ../exports/ci-trace.json
+          cargo run --release -- replay ../exports/ci-trace.json > ../exports/ci-replay.json
+          cargo run --release -- sweep --seeds 20 --jobs 1 --output ../exports/ci-jobs1.csv
+          cargo run --release -- sweep --seeds 20 --jobs 8 --output ../exports/ci-jobs8.csv
+          cmp ../exports/ci-jobs1.csv ../exports/ci-jobs8.csv
+          test "$(sha256sum ../exports/ci-trace.json | cut -d' ' -f1)" = "6272fa854de66bc42512f38d095d7ccf6f75bb85f581dc4acaabf9fbe8ede71d"
+          test "$(sha256sum ../exports/ci-jobs1.csv | cut -d' ' -f1)" = "5fdc665f5c35cee5c63143860789a9a2a4db831ec65c9e814610d1f6b1764a6a"
+
+  lean:
+    name: Lean proofs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: lean
+
+  repository-integrity:
+    name: Public repository integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Check portability, evidence snapshot, and HTML package
+        run: python scripts/check_public_repo.py

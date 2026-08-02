@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this demonstration, cite this repository and the original Mysticeti paper."
+title: "Mysticeti Proof-to-Production Demo"
+type: software
+version: 1.0.0-demo
+date-released: 2026-08-02
+authors:
+  - family-names: Liezrowice
+    given-names: Daniel
+    affiliation: Engineering Software Lab (ESL)
+repository-code: "https://github.com/zuwasi/mysticeti-proof-to-production-demo"
+url: "https://zuwasi.github.io/Public-html-pages/mysticeti-consensus-digital-twin/"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Mysticeti: Reaching the Latency Limits with Uncertified DAGs"
+  authors:
+    - family-names: Babel
+      given-names: Kushal
+    - family-names: Chursin
+      given-names: Andrey
+    - family-names: Danezis
+      given-names: George
+    - family-names: Kichidis
+      given-names: Anastasios
+    - family-names: Kokoris-Kogias
+      given-names: Lefteris
+    - family-names: Koshy
+      given-names: Arun
+    - family-names: Sonnino
+      given-names: Alberto
+    - family-names: Tian
+      given-names: Mingwei
+  year: 2025
+  conference:
+    name: "Network and Distributed System Security Symposium"
+  doi: "10.14722/ndss.2025.240929"

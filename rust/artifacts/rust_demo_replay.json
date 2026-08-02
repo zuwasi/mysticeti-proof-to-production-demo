@@ -1,0 +1,162 @@
+[
+  {
+    "slot": 0,
+    "proposal_id": "c900a1f8593345cd0a954859d552d08885843a863660fa050247bb326165c72b",
+    "proposal_round": 0,
+    "kind": "commit",
+    "support_stake": 10,
+    "certificate_author_stake": 10,
+    "support_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "certificate_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  },
+  {
+    "slot": 1,
+    "proposal_id": "79853d13396ff42280d1a8266c9f6d9d0fc78f3ff364032b6874a784e2ef6f45",
+    "proposal_round": 3,
+    "kind": "commit",
+    "support_stake": 10,
+    "certificate_author_stake": 10,
+    "support_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "certificate_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  },
+  {
+    "slot": 2,
+    "proposal_id": "fa00e31a0de7ff8f8d76175a2f16ac71f4bb4a7a69ba3da3c025d18e68bb4d01",
+    "proposal_round": 6,
+    "kind": "commit",
+    "support_stake": 10,
+    "certificate_author_stake": 10,
+    "support_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "certificate_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  },
+  {
+    "slot": 3,
+    "proposal_id": "203a1299fc171276b2846bc359ed3edeeaf08fb29f34c669c3008d50362adb2c",
+    "proposal_round": 9,
+    "kind": "commit",
+    "support_stake": 10,
+    "certificate_author_stake": 10,
+    "support_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "certificate_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  },
+  {
+    "slot": 3,
+    "proposal_id": "c6011f98da19c59114de3b9b2852e05f070d35e76096c4304bb7a5eb330c0146",
+    "proposal_round": 9,
+    "kind": "no_decision",
+    "support_stake": 1,
+    "certificate_author_stake": 0,
+    "support_authors": [
+      "authority-3"
+    ],
+    "certificate_authors": [],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  },
+  {
+    "slot": 4,
+    "proposal_id": "43fd5cc3145951c51052c90aadab5824aa484ab27477ea57d2df91870ad16ff0",
+    "proposal_round": 12,
+    "kind": "commit",
+    "support_stake": 10,
+    "certificate_author_stake": 10,
+    "support_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "certificate_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  },
+  {
+    "slot": 5,
+    "proposal_id": "c5a02c82ed10ada51578aae3a7595ab0f133fec646581386bfa42aec5862f3a1",
+    "proposal_round": 15,
+    "kind": "commit",
+    "support_stake": 10,
+    "certificate_author_stake": 10,
+    "support_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "certificate_authors": [
+      "authority-0",
+      "authority-1",
+      "authority-2",
+      "authority-3"
+    ],
+    "evidence": [
+      "distinct-author support stake",
+      "r+2 certificate-block author stake"
+    ]
+  }
+]

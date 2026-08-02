@@ -1,0 +1,22 @@
+#!/usr/bin/env wolframscript
+projectDir = DirectoryName[$InputFileName]; SetDirectory[projectDir];
+If[!DirectoryQ["exports"], CreateDirectory["exports"]]; Get[FileNameJoin[{projectDir, "src", "MysticetiModel.wl"}]];
+passed = 0; failed = 0; warnings = 0; lines = {"MYSTICETI CONSENSUS DIGITAL TWIN - CORRECTIVE SCIENTIFIC AUDIT"};
+log[s_] := (AppendTo[lines, s]; Print[s]);
+audit[n_, t_] := If[TrueQ[t], passed++; log["PASS: " <> n], failed++; log["FAIL: " <> n]];
+Do[audit["quorum arithmetic f=" <> ToString[f], QuorumThreshold[f] == 2 f + 1 && CommitteeSize[f] == 3 f + 1], {f, {1, 2, 45}}];
+audit["honest intersection n=7,q=5,b=2", HonestIntersectionLowerBound[7, 5, 2] == 1];
+validation = RunValidationSuite[];
+KeyValueMap[audit["fixture: " <> #1, #2] &, validation["Checks"]];
+rustTracePath = FileNameJoin[{projectDir, "exports", "rust_demo_trace.json"}]; rustSweepPath = FileNameJoin[{projectDir, "exports", "rust_fault_sweep.csv"}];
+audit["Rust demo trace is nonempty", FileExistsQ[rustTracePath] && FileByteCount[rustTracePath] > 0];
+audit["Rust fault sweep is nonempty", FileExistsQ[rustSweepPath] && FileByteCount[rustSweepPath] > 0];
+If[FileExistsQ[rustTracePath], rustValidation = ValidateRustTrace[rustTracePath]; KeyValueMap[audit["Rust conformance: " <> #1, #2] &, rustValidation["Checks"]]];
+warnings = 4;
+log["WARN: CSV checks are fixture/transcription consistency, not independent paper verification."];
+log["WARN: timing is an uncalibrated synthetic sensitivity model, not WAN simulation or production prediction."];
+log["WARN: Lean is not invoked; model checks are not a complete protocol safety/liveness proof."];
+log["WARN: Rust conformance audits recorded cross-language evidence; it does not prove Rust or claim production Sui equivalence."];
+log["SUMMARY: " <> ToString[passed] <> " passed, " <> ToString[failed] <> " failed, " <> ToString[warnings] <> " warnings"];
+Export[FileNameJoin[{projectDir, "exports", "audit_report.txt"}], StringRiffle[lines, "\n"], "Text"];
+If[failed > 0, Exit[1], Exit[0]];

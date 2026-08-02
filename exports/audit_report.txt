@@ -1,0 +1,35 @@
+MYSTICETI CONSENSUS DIGITAL TWIN - CORRECTIVE SCIENTIFIC AUDIT
+PASS: quorum arithmetic f=1
+PASS: quorum arithmetic f=2
+PASS: quorum arithmetic f=45
+PASS: honest intersection n=7,q=5,b=2
+PASS: fixture: FullSupportAndCertificatesCommit
+PASS: fixture: FewerThanQCertificateAuthoritiesUndecided
+PASS: fixture: QMinusOneSupportAuthoritiesUndecided
+PASS: fixture: QNonSupportAuthoritiesSkip
+PASS: fixture: DuplicateAuthorEquivocationDoesNotIncreaseCount
+PASS: fixture: SupportedProposalDeterministicallySelectsOne
+PASS: fixture: DeterministicReplay
+PASS: fixture: ParentReferencesExist
+PASS: fixture: DistinctParentAuthorities
+PASS: fixture: CSVFixtureTranscriptionConsistency
+PASS: fixture: CSVFixtureRatioConsistency
+PASS: fixture: SyntheticSampleFloor
+PASS: Rust demo trace is nonempty
+PASS: Rust fault sweep is nonempty
+PASS: Rust conformance: Schema
+PASS: Rust conformance: ConfigStakesMatchCommittee
+PASS: Rust conformance: TotalAndQuorumMath
+PASS: Rust conformance: BlockReferences
+PASS: Rust conformance: EventReferences
+PASS: Rust conformance: ReportedAssumptionsSatisfied
+PASS: Rust conformance: ReportedChecksPassed
+PASS: Rust conformance: DecisionAuthorsDistinct
+PASS: Rust conformance: DecisionStakesRecompute
+PASS: Rust conformance: CommitsHaveCertificateAuthorQuorum
+PASS: Rust conformance: EveryConfiguredSlotDecided
+WARN: CSV checks are fixture/transcription consistency, not independent paper verification.
+WARN: timing is an uncalibrated synthetic sensitivity model, not WAN simulation or production prediction.
+WARN: Lean is not invoked; model checks are not a complete protocol safety/liveness proof.
+WARN: Rust conformance audits recorded cross-language evidence; it does not prove Rust or claim production Sui equivalence.
+SUMMARY: 29 passed, 0 failed, 4 warnings
